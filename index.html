@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Routine Creator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Workout Manager</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="m-5">
     <div class="container">
-        <h1 class="text-center my-4">Workout Routine Creator</h1>
+        <h1 class="text-center my-4"><span>Workout</span> Manager</h1>
         <form id="exercise-form" class="mb-4">
             <div class="form-group">
                 <label for="exercise-name">Exercise Name:</label>
                 <input type="text" id="exercise-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="exercise-category">Category:</label>
+                <select id="exercise-category" class="form-control" required>
+                    <option value="Strength">Strength</option>
+                    <option value="Cardio">Cardio</option>
+                    <option value="Flexibility">Flexibility</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="exercise-reps">Repetitions:</label>
@@ -24,10 +31,28 @@
                 <label for="exercise-sets">Sets:</label>
                 <input type="number" id="exercise-sets" class="form-control" required>
             </div>
+            <div class="form-group">
+                <label for="exercise-notes">Notes:</label>
+                <textarea id="exercise-notes" class="form-control" rows="3"></textarea>
+            </div>
             <button type="submit" class="btn btn-primary">Add Exercise</button>
         </form>
         <h2>Routines</h2>
+        <div class="mb-3">
+            <label for="sort-options">Sort by:</label>
+            <select id="sort-options" class="form-control">
+                <option value="name">Name</option>
+                <option value="category">Category</option>
+                <option value="reps">Repetitions</option>
+                <option value="sets">Sets</option>
+            </select>
+        </div>
         <ul id="routine-list" class="list-group mb-4"></ul>
+        <div>
+            <button id="export-btn" class="btn btn-secondary">Download Routine</button>
+            <input type="file" id="import-file" class="d-none">
+            <button id="import-btn" class="btn btn-secondary">Import Routine</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
